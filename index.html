@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Will You Be Mine?</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      width: 100%;
+      font-family: Arial, sans-serif;
+      background: #fff;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .container {
+      height: 100%;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      z-index: 1;
+    }
+
+    h1 {
+      color: #e91e63;
+      margin: 20px;
+    }
+
+    .video-circle {
+      width: 250px;
+      height: 250px;
+      border-radius: 50%;
+      overflow: hidden;
+      margin-bottom: 20px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    }
+
+    .video-circle iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    .buttons {
+      position: relative;
+      z-index: 2;
+    }
+
+    button {
+      padding: 12px 24px;
+      margin: 10px;
+      font-size: 18px;
+      border: none;
+      border-radius: 8px;
+      background-color: #ff4081;
+      color: white;
+      cursor: pointer;
+      transition: 0.3s;
+      position: relative;
+    }
+
+    #popupBox {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+      z-index: 10;
+      text-align: center;
+    }
+
+    #popupBox p {
+      font-size: 20px;
+      color: #e91e63;
+      margin-bottom: 20px;
+    }
+
+    #closePopup {
+      padding: 8px 16px;
+      border: none;
+      border-radius: 6px;
+      background-color: #f44336;
+      color: white;
+      cursor: pointer;
+    }
+
+    .heart {
+      position: fixed;
+      top: -10px;
+      width: 20px;
+      height: 20px;
+      background: url('https://cdn-icons-png.flaticon.com/512/833/833472.png') no-repeat center/contain;
+      animation: fall 6s linear infinite;
+      opacity: 0.7;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    @keyframes fall {
+      0% { transform: translateY(0); }
+      100% { transform: translateY(100vh); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Falling Hearts -->
+  <script>
+    for (let i = 0; i < 15; i++) {
+      const heart = document.createElement('div');
+      heart.classList.add('heart');
+      heart.style.left = Math.random() * 100 + 'vw';
+      heart.style.animationDuration = (3 + Math.random() * 3) + 's';
+      document.body.appendChild(heart);
+    }
+  </script>
+
+  <div class="container">
+    <div class="video-circle">
+     <iframe 
+  src="https://streamable.com/e/w22v4w?autoplay=1&muted=1&nocontrols=1" 
+  allow="autoplay" 
+  allowfullscreen>
+</iframe>
+    </div>
+
+    <h1>Will You Be Go for the Drive? 👑💖</h1>
+
+    <div class="buttons">
+      <button id="yesBtn">YES 💗</button>
+      <button id="noBtn">NO 💔</button>
+    </div>
+  </div>
+
+  <!-- Popup Message -->
+  <div id="popupBox">
+    <p>Yayy! 💖 A long drive and delicious food is booked for my princess. 🌹🚗🍽️</p>
+    <button id="closePopup">Close</button>
+  </div>
+
+  <script>
+    const noBtn = document.getElementById('noBtn');
+    const yesBtn = document.getElementById('yesBtn');
+    const popupBox = document.getElementById('popupBox');
+    const closePopup = document.getElementById('closePopup');
+
+    noBtn.addEventListener('mouseover', () => {
+      const buttonWidth = noBtn.offsetWidth;
+      const buttonHeight = noBtn.offsetHeight;
+      const maxX = window.innerWidth - buttonWidth - 20;
+      const maxY = window.innerHeight - buttonHeight - 20;
+
+      const randomX = Math.floor(Math.random() * maxX);
+      const randomY = Math.floor(Math.random() * maxY);
+
+      noBtn.style.position = 'fixed';
+      noBtn.style.left = `${randomX}px`;
+      noBtn.style.top = `${randomY}px`;
+    });
+
+    yesBtn.addEventListener('click', () => {
+      popupBox.style.display = 'block';
+    });
+
+    closePopup.addEventListener('click', () => {
+      popupBox.style.display = 'none';
+    });
+	// Change NO button to 😠 after 5 seconds
+setTimeout(() => {
+  noBtn.innerHTML = "I say No...😠";
+}, 10000);
+
+// Change NO button to 😠 Please 🥺 after 10 seconds
+setTimeout(() => {
+  noBtn.innerHTML = "Please 🥺";
+}, 15000);
+// Change NO button to 😠 Please 🥺 after 12 seconds
+setTimeout(() => {
+  noBtn.innerHTML = "Okay Then catch me";
+}, 15000);
+// YES button update after 11 sec
+  setTimeout(() => {
+    yesBtn.innerHTML = "I’m here 😊 Hello!";
+    yesBtn.classList.add("highlight");
+  }, 15000);
+  </script>
+
+</body>
+</html>
