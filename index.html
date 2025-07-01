@@ -137,7 +137,7 @@
 </iframe>
     </div>
 
-    <h1>I have a surprise for you 👑💖</h1>
+    <h1>Will You Be Go for the Drive? 👑💖</h1>
 
     <div class="buttons">
       <button id="yesBtn">YES 💗</button>
@@ -146,10 +146,44 @@
   </div>
 
   <!-- Popup Message -->
-  <div id="popupBox">
-    <p>Yayy! 💖 A long drive and delicious food is booked for my princess. 🌹🚗🍽️</p>
-    <button id="closePopup">Close</button>
+<div id="popupBox">
+  <p>Long drive & food booked for the princess. 💖🌮🚗</p>
+
+  <div style="margin-top: 10px;">
+    <strong>Pick one food option:</strong><br>
+    <label><input type="radio" name="food" value="Street Food"> Street Food</label><br>
+    <label><input type="radio" name="food" value="Candle Night Dinner"> Candle Night Dinner</label><br>
+    <label><input type="radio" name="food" value="Dhaba"> Dhaba</label><br>
+    <label><input type="radio" name="food" value="Cafe"> Cafe</label>
   </div>
+
+  <div style="margin-top: 15px;">
+    <strong>Pick one ride option:</strong><br>
+    <label><input type="radio" name="drive" value="Night Ride"> Night Ride</label><br>
+    <label><input type="radio" name="drive" value="Day Out"> Day Out</label>
+  </div>
+
+  <button id="closePopup">Close</button>
+</div>
+
+<!-- Hidden surprise video -->
+<div id="surpriseVideo" style="display: none; margin-top: 30px; text-align: center;">
+  <div style="position:relative; width:90%; max-width:500px; height:0px; padding-bottom:100%; margin: 0 auto;">
+    <iframe allow="autoplay; fullscreen" allowfullscreen height="100%" src="https://streamable.com/e/9mdsbc?autoplay=1" width="100%" style="border:none; width:100%; height:100%; position:absolute; left:0px; top:0px; overflow:hidden;"></iframe>
+  </div>
+</div>
+
+<!-- Hidden surprise video -->
+<div id="surpriseVideo" style="display: none; margin-top: 20px;">
+  <div style="position:relative; width:100%; max-width:500px; height:0px; padding-bottom:100%;">
+    <iframe allow="fullscreen;autoplay" allowfullscreen height="100%" src="https://streamable.com/e/9mdsbc?autoplay=1" width="100%" style="border:none; width:100%; height:100%; position:absolute; left:0px; top:0px; overflow:hidden;"></iframe>
+  </div>
+</div>
+<script>// Close popup and show surprise video
+closePopup.addEventListener('click', () => {
+  popupBox.style.display = 'none';
+  document.getElementById('surpriseVideo').style.display = 'block';
+});</script>
 
   <script>
     const noBtn = document.getElementById('noBtn');
@@ -187,15 +221,15 @@ setTimeout(() => {
 setTimeout(() => {
   noBtn.innerHTML = "Please 🥺";
 }, 15000);
-// Change NO button to 😠 Please 🥺 after 12 seconds
+// Change NO button to 😠 Please 🥺 after 15 seconds
 setTimeout(() => {
   noBtn.innerHTML = "Okay Then catch me";
 }, 15000);
 // YES button update after 11 sec
   setTimeout(() => {
-    yesBtn.innerHTML = "I’m here 😊 Hello!";
+    yesBtn.innerHTML = "Hello!";
     yesBtn.classList.add("highlight");
-  }, 15000);
+  }, 15000);  
   </script>
 
 </body>
